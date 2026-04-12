@@ -1,0 +1,66 @@
+{
+  "best_model": "gradient_boosting",
+  "train_accuracy": 1.0,
+  "test_accuracy": 0.9556,
+  "feature_importance": {
+    "national_n5": 0.4650135582011432,
+    "sido_survival_rate": 0.17596073402049622,
+    "sido_n1": 0.14452839564077155,
+    "national_survival_rate": 0.0833716504278923,
+    "sido_total": 0.034735173298468515,
+    "density": 0.021381450242940137,
+    "old_ratio": 0.016937986593639764,
+    "slug_code": 0.01626999553804848,
+    "young_ratio": 0.015916385779758617,
+    "avg_income": 0.011630056679253072,
+    "population": 0.008332546822579005,
+    "comp_count": 0.005922066755008977
+  },
+  "top_risk_factor": "national_n5",
+  "feature_names": [
+    "national_survival_rate",
+    "national_n5",
+    "sido_survival_rate",
+    "sido_n1",
+    "sido_total",
+    "comp_count",
+    "population",
+    "density",
+    "avg_income",
+    "young_ratio",
+    "old_ratio",
+    "slug_code"
+  ],
+  "feature_names_kr": {
+    "national_survival_rate": "전국 생존율",
+    "national_n5": "전국 5년 생존율",
+    "sido_survival_rate": "지역 생존율",
+    "sido_n1": "지역 1년 생존율",
+    "sido_total": "지역 등록 업체수",
+    "comp_count": "경쟁업체 수",
+    "population": "인구 수",
+    "density": "인구밀도",
+    "avg_income": "가구소득",
+    "young_ratio": "20~30대 비율",
+    "old_ratio": "50대 이상 비율",
+    "slug_code": "업종 코드"
+  },
+  "all_results": {
+    "gradient_boosting": {
+      "train_accuracy": 1.0,
+      "test_accuracy": 0.9556
+    },
+    "logistic": {
+      "train_accuracy": 0.9401,
+      "test_accuracy": 0.9429
+    },
+    "knn": {
+      "train_accuracy": 0.9096,
+      "test_accuracy": 0.8986
+    },
+    "decision_tree": {
+      "train_accuracy": 0.9881,
+      "test_accuracy": 0.9556
+    }
+  }
+}
