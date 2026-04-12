@@ -26,6 +26,7 @@ class DiagnosisRequest(BaseModel):
     young_ratio: Optional[float] = None
     old_ratio: Optional[float] = None
     total: Optional[int] = None
+    user_note: Optional[str] = None
 
 
 class DiagnosisResponse(BaseModel):

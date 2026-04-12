@@ -27,6 +27,7 @@ async def generate_diagnosis(analysis_data: dict) -> str:
 - ML 예측 생존확률: {analysis_data.get('ml_prediction', {}).get('survival_prob', 'N/A')}
 - 최대 위험 요인: {analysis_data.get('ml_prediction', {}).get('top_risk_factor_kr', 'N/A')}
 - 받을 수 있는 지원금: {analysis_data.get('subsidies_count', 0)}건, 최대 {analysis_data.get('subsidies_total', 0)}만원
+- 사용자 메모: "{analysis_data.get('user_note', '없음')}"
 
 규칙:
 1. 숫자를 나열하지 말고, 이 사람이 이해할 수 있는 일상 언어로 설명하세요.
