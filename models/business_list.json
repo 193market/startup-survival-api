@@ -1,0 +1,782 @@
+[
+{
+"slug": "civil_defense_water_facilities",
+"name_ko": "민방위급수시설"
+},
+{
+"slug": "local_culture_centers",
+"name_ko": "지역문화시설"
+},
+{
+"slug": "registered_sports_facilities",
+"name_ko": "체육시설업(등록체육시설업)"
+},
+{
+"slug": "ski_resorts",
+"name_ko": "스키장업"
+},
+{
+"slug": "tourist_railways",
+"name_ko": "관광궤도업"
+},
+{
+"slug": "traditional_temples",
+"name_ko": "전통사찰"
+},
+{
+"slug": "golf_courses",
+"name_ko": "골프장"
+},
+{
+"slug": "cultural_art_corporations",
+"name_ko": "문화예술법인"
+},
+{
+"slug": "animal_cremation",
+"name_ko": "동물화장업"
+},
+{
+"slug": "water_supply_agents",
+"name_ko": "급수장치공사업"
+},
+{
+"slug": "medical_corporations",
+"name_ko": "의료법인"
+},
+{
+"slug": "city_gas_companies",
+"name_ko": "도시가스사업"
+},
+{
+"slug": "animal_breeding",
+"name_ko": "동물생산업"
+},
+{
+"slug": "international_convention_facilities",
+"name_ko": "국제회의시설업"
+},
+{
+"slug": "museums_and_art_galleries",
+"name_ko": "박물관및미술관"
+},
+{
+"slug": "special_resorts",
+"name_ko": "전문휴양업"
+},
+{
+"slug": "emergency_patient_transport",
+"name_ko": "환자이송업"
+},
+{
+"slug": "international_convention_planners",
+"name_ko": "국제회의기획업"
+},
+{
+"slug": "auto_campgrounds",
+"name_ko": "자동차야영장업"
+},
+{
+"slug": "log_production",
+"name_ko": "원목생산업"
+},
+{
+"slug": "video_producers",
+"name_ko": "비디오물제작업"
+},
+{
+"slug": "record_distributors",
+"name_ko": "음반물배급업"
+},
+{
+"slug": "film_producers",
+"name_ko": "영화제작업"
+},
+{
+"slug": "tourism_businesses",
+"name_ko": "관광사업자"
+},
+{
+"slug": "international_logistics_forwarders",
+"name_ko": "국제물류주선업"
+},
+{
+"slug": "pop_culture_art_planners",
+"name_ko": "대중문화예술기획업"
+},
+{
+"slug": "emission_inspection_agencies",
+"name_ko": "배출시설검사기관"
+},
+{
+"slug": "weighing_instrument_manufacturing",
+"name_ko": "계량기제조업"
+},
+{
+"slug": "record_producers",
+"name_ko": "음반제작업"
+},
+{
+"slug": "environment_measurement_agencies",
+"name_ko": "환경측정기관"
+},
+{
+"slug": "environment_consulting_companies",
+"name_ko": "환경컨설팅업체"
+},
+{
+"slug": "comprehensive_resorts",
+"name_ko": "종합휴양업"
+},
+{
+"slug": "film_distributors",
+"name_ko": "영화배급업"
+},
+{
+"slug": "large_scale_retail_stores",
+"name_ko": "대규모점포"
+},
+{
+"slug": "tourist_pensions",
+"name_ko": "관광펜션업"
+},
+{
+"slug": "hanok_experience",
+"name_ko": "한옥체험업"
+},
+{
+"slug": "tourist_accommodations",
+"name_ko": "관광숙박업"
+},
+{
+"slug": "pay_as_you_throw_bag_retailers",
+"name_ko": "종량제봉투판매점"
+},
+{
+"slug": "film_importers",
+"name_ko": "영화수입업"
+},
+{
+"slug": "general_campgrounds",
+"name_ko": "일반야영장업"
+},
+{
+"slug": "printing_shops",
+"name_ko": "인쇄사"
+},
+{
+"slug": "weighing_instrument_repair",
+"name_ko": "계량기수리업"
+},
+{
+"slug": "sawmills",
+"name_ko": "제재업"
+},
+{
+"slug": "film_screenings",
+"name_ko": "영화상영업"
+},
+{
+"slug": "game_producers",
+"name_ko": "게임물제작업"
+},
+{
+"slug": "music_video_distributors",
+"name_ko": "뮤직비디오배급업"
+},
+{
+"slug": "air_pollution_facility_installation",
+"name_ko": "대기오염방지시설설치업"
+},
+{
+"slug": "specific_high_pressure_gas",
+"name_ko": "특정고압가스업"
+},
+{
+"slug": "video_distributors",
+"name_ko": "비디오물배급업"
+},
+{
+"slug": "game_distributors",
+"name_ko": "게임물배급업"
+},
+{
+"slug": "tourist_restaurants",
+"name_ko": "관광식당"
+},
+{
+"slug": "foreigner_city_homestays",
+"name_ko": "외국인도시민박업"
+},
+{
+"slug": "comprehensive_travel_agencies",
+"name_ko": "종합여행업"
+},
+{
+"slug": "performance_halls",
+"name_ko": "공연장"
+},
+{
+"slug": "manure_collection_transport",
+"name_ko": "가축분뇨수집운반업"
+},
+{
+"slug": "comprehensive_amusement_facilities",
+"name_ko": "종합유원시설업"
+},
+{
+"slug": "construction_waste_disposal",
+"name_ko": "건설폐기물처리업"
+},
+{
+"slug": "lumber_import_distribution",
+"name_ko": "목재수입유통업"
+},
+{
+"slug": "power_supervision_companies",
+"name_ko": "전력기술감리업체"
+},
+{
+"slug": "slaughterhouses",
+"name_ko": "도축업"
+},
+{
+"slug": "publishers",
+"name_ko": "출판사"
+},
+{
+"slug": "groundwater_remediation",
+"name_ko": "지하수정화업"
+},
+{
+"slug": "online_music_services",
+"name_ko": "온라인음악서비스제공업"
+},
+{
+"slug": "artificial_insemination_centers",
+"name_ko": "가축인공수정소"
+},
+{
+"slug": "weighing_instrument_import",
+"name_ko": "계량기수입업"
+},
+{
+"slug": "veterinary_medical_equipment_sales",
+"name_ko": "동물용의료기기판매업"
+},
+{
+"slug": "ecommerce_businesses",
+"name_ko": "통신판매업"
+},
+{
+"slug": "movie_theaters",
+"name_ko": "영화상영관"
+},
+{
+"slug": "water_pollution_source_other",
+"name_ko": "기타수질오염원"
+},
+{
+"slug": "feed_manufacturers",
+"name_ko": "사료제조업"
+},
+{
+"slug": "groundwater_impact_assessment",
+"name_ko": "지하수영향조사기관"
+},
+{
+"slug": "pet_grooming",
+"name_ko": "동물미용업"
+},
+{
+"slug": "music_video_producers",
+"name_ko": "뮤직비디오제작업"
+},
+{
+"slug": "power_design_companies",
+"name_ko": "전력기술설계업체"
+},
+{
+"slug": "medical_device_repair",
+"name_ko": "의료기기수리업"
+},
+{
+"slug": "tobacco_import_retailers",
+"name_ko": "담배수입판매업체"
+},
+{
+"slug": "elevator_manufacturers_importers",
+"name_ko": "승강기제조및수입업체"
+},
+{
+"slug": "fitness_centers",
+"name_ko": "체력단련장업"
+},
+{
+"slug": "livestock_storage",
+"name_ko": "축산물보관업"
+},
+{
+"slug": "night_soil_collection_transport",
+"name_ko": "분뇨수집운반업"
+},
+{
+"slug": "groundwater_construction",
+"name_ko": "지하수시공업체"
+},
+{
+"slug": "elevator_maintenance",
+"name_ko": "승강기유지관리업체"
+},
+{
+"slug": "lpg_equipment_manufacturers",
+"name_ko": "액화석유가스충전사업자"
+},
+{
+"slug": "animal_pharmacies",
+"name_ko": "동물약국"
+},
+{
+"slug": "comprehensive_sports_facilities",
+"name_ko": "체육시설업(종합체육시설업)"
+},
+{
+"slug": "environment_contractors",
+"name_ko": "환경전문공사업"
+},
+{
+"slug": "city_tour_businesses",
+"name_ko": "도시관광업"
+},
+{
+"slug": "rural_homestays",
+"name_ko": "농어촌민박업"
+},
+{
+"slug": "medical_laundry",
+"name_ko": "의료기관세탁물처리업"
+},
+{
+"slug": "tourist_performance_halls",
+"name_ko": "관광공연장업"
+},
+{
+"slug": "weighing_instrument_certification",
+"name_ko": "계량기검정업"
+},
+{
+"slug": "container_refrigeration_equipment",
+"name_ko": "냉동냉장컨테이너장치업"
+},
+{
+"slug": "livestock_farming",
+"name_ko": "가축사육업"
+},
+{
+"slug": "tourist_theater_entertainment",
+"name_ko": "관광극장유흥업"
+},
+{
+"slug": "logistics_warehouses",
+"name_ko": "물류창고업"
+},
+{
+"slug": "swimming_pools",
+"name_ko": "수영장업"
+},
+{
+"slug": "tourist_cruises",
+"name_ko": "관광유람선업"
+},
+{
+"slug": "high_pressure_gas",
+"name_ko": "고압가스업"
+},
+{
+"slug": "milk_collection",
+"name_ko": "원유집유업"
+},
+{
+"slug": "animal_boarding",
+"name_ko": "동물위탁관리업"
+},
+{
+"slug": "optical_shops",
+"name_ko": "안경업"
+},
+{
+"slug": "livestock_transport",
+"name_ko": "가축운송업"
+},
+{
+"slug": "briquette_manufacturers",
+"name_ko": "연탄제조업"
+},
+{
+"slug": "affiliated_medical_institutions",
+"name_ko": "부속의료기관"
+},
+{
+"slug": "water_tank_cleaning",
+"name_ko": "저수조청소업"
+},
+{
+"slug": "funeral_service_providers",
+"name_ko": "장의업"
+},
+{
+"slug": "horse_riding",
+"name_ko": "승마장업"
+},
+{
+"slug": "dental_labs",
+"name_ko": "치과기공소"
+},
+{
+"slug": "food_freezing_refrigeration",
+"name_ko": "식품냉동냉장업"
+},
+{
+"slug": "disinfection_companies",
+"name_ko": "방역업"
+},
+{
+"slug": "yacht_marinas",
+"name_ko": "요트장업"
+},
+{
+"slug": "foreigners_entertainment_restaurants",
+"name_ko": "외국인전용유흥음식점"
+},
+{
+"slug": "domestic_international_travel_agencies",
+"name_ko": "국내외여행업"
+},
+{
+"slug": "clinics",
+"name_ko": "의원"
+},
+{
+"slug": "manure_facility_management",
+"name_ko": "가축분뇨처리업"
+},
+{
+"slug": "small_sewage_facility_management",
+"name_ko": "소규모하수도시설관리업"
+},
+{
+"slug": "telemarketing_sales",
+"name_ko": "전화권유판매업"
+},
+{
+"slug": "hospitals",
+"name_ko": "병원"
+},
+{
+"slug": "group_meal_facilities",
+"name_ko": "집단급식소"
+},
+{
+"slug": "medical_device_sales_rental",
+"name_ko": "의료기기판매임대업"
+},
+{
+"slug": "animal_transport",
+"name_ko": "동물운송업"
+},
+{
+"slug": "mixed_game_providers",
+"name_ko": "복합유통게임제공업"
+},
+{
+"slug": "door_to_door_sales",
+"name_ko": "방문판매업"
+},
+{
+"slug": "lodgings",
+"name_ko": "숙박업"
+},
+{
+"slug": "animal_hospitals",
+"name_ko": "동물병원"
+},
+{
+"slug": "oil_retailers",
+"name_ko": "석유판매업"
+},
+{
+"slug": "tourist_entertainment_restaurants",
+"name_ko": "외국인관광유흥음식점업"
+},
+{
+"slug": "golf_practice_ranges",
+"name_ko": "골프연습장업"
+},
+{
+"slug": "meat_packers",
+"name_ko": "식육포장처리업"
+},
+{
+"slug": "tobacco_wholesalers",
+"name_ko": "담배도매업"
+},
+{
+"slug": "animal_exhibition",
+"name_ko": "동물전시업"
+},
+{
+"slug": "breeding_stock_businesses",
+"name_ko": "종축업"
+},
+{
+"slug": "karaoke_rooms",
+"name_ko": "노래연습장업"
+},
+{
+"slug": "hatcheries",
+"name_ko": "부화업"
+},
+{
+"slug": "over_the_counter_medicine_stores",
+"name_ko": "안전상비의약품판매업소"
+},
+{
+"slug": "multilevel_marketing",
+"name_ko": "다단계판매업체"
+},
+{
+"slug": "entertainment_bars",
+"name_ko": "유흥주점영업"
+},
+{
+"slug": "pc_bangs",
+"name_ko": "인터넷컴퓨터게임시설제공업"
+},
+{
+"slug": "postpartum_care",
+"name_ko": "산후조리업"
+},
+{
+"slug": "caregiver_training",
+"name_ko": "요양보호사교육기관"
+},
+{
+"slug": "funeral_director_training",
+"name_ko": "장례지도사교육기관"
+},
+{
+"slug": "other_food_retailers",
+"name_ko": "기타식품판매업"
+},
+{
+"slug": "free_job_centers",
+"name_ko": "무료직업소개소"
+},
+{
+"slug": "youth_game_providers",
+"name_ko": "청소년게임제공업"
+},
+{
+"slug": "health_functional_food_specialty_retailers",
+"name_ko": "건강기능식품전문판매업"
+},
+{
+"slug": "veterinary_drug_wholesalers",
+"name_ko": "동물용의약품도매상"
+},
+{
+"slug": "container_packaging_manufacturers",
+"name_ko": "용기포장류제조업"
+},
+{
+"slug": "beauty_salons",
+"name_ko": "미용업"
+},
+{
+"slug": "group_meal_food_retailers",
+"name_ko": "집단급식소식품판매업"
+},
+{
+"slug": "livestock_processing",
+"name_ko": "축산물가공업"
+},
+{
+"slug": "livestock_retail",
+"name_ko": "가축거래상인"
+},
+{
+"slug": "animal_import",
+"name_ko": "동물수입업"
+},
+{
+"slug": "food_additive_manufacturers",
+"name_ko": "식품첨가물제조업"
+},
+{
+"slug": "amusement_facilities_other",
+"name_ko": "기타유원시설업"
+},
+{
+"slug": "sledding",
+"name_ko": "썰매장업"
+},
+{
+"slug": "petroleum_alt_fuel_retailers",
+"name_ko": "석유대체연료판매업"
+},
+{
+"slug": "billiard_halls",
+"name_ko": "당구장업"
+},
+{
+"slug": "video_streaming_providers",
+"name_ko": "온라인영상물제공업"
+},
+{
+"slug": "food_transporters",
+"name_ko": "식품운반업"
+},
+{
+"slug": "pharmacies",
+"name_ko": "약국"
+},
+{
+"slug": "building_sanitation",
+"name_ko": "건물위생관리업"
+},
+{
+"slug": "environment_management_agencies",
+"name_ko": "건물위생관리업"
+},
+{
+"slug": "onggi_manufacturers",
+"name_ko": "옹기제조업"
+},
+{
+"slug": "video_mini_theaters",
+"name_ko": "비디오물소극장업"
+},
+{
+"slug": "medical_related_businesses",
+"name_ko": "의료유사업"
+},
+{
+"slug": "outdoor_advertising_companies",
+"name_ko": "옥외광고업"
+},
+{
+"slug": "animal_sales",
+"name_ko": "동물판매업"
+},
+{
+"slug": "domestic_travel_agencies",
+"name_ko": "국내여행업"
+},
+{
+"slug": "tobacco_retailers",
+"name_ko": "담배소매업"
+},
+{
+"slug": "contract_catering",
+"name_ko": "위탁급식영업"
+},
+{
+"slug": "food_manufacturing_processors",
+"name_ko": "식품제조가공업"
+},
+{
+"slug": "general_amusement_facilities",
+"name_ko": "일반유원시설업"
+},
+{
+"slug": "public_baths",
+"name_ko": "목욕장업"
+},
+{
+"slug": "ice_rinks",
+"name_ko": "스케이트장업"
+},
+{
+"slug": "food_repackagers",
+"name_ko": "식품소분업"
+},
+{
+"slug": "rest_cafes",
+"name_ko": "휴게음식점"
+},
+{
+"slug": "paid_job_centers",
+"name_ko": "유료직업소개소"
+},
+{
+"slug": "general_restaurants",
+"name_ko": "일반음식점"
+},
+{
+"slug": "general_game_providers",
+"name_ko": "일반게임제공업"
+},
+{
+"slug": "septic_sewage_design_build",
+"name_ko": "정화조하수도설계시공업"
+},
+{
+"slug": "dance_halls",
+"name_ko": "무도장업"
+},
+{
+"slug": "martial_arts_dojo",
+"name_ko": "무도장업"
+},
+{
+"slug": "bakeries",
+"name_ko": "제과점영업"
+},
+{
+"slug": "dance_academies",
+"name_ko": "무도학원업"
+},
+{
+"slug": "laundries",
+"name_ko": "세탁업"
+},
+{
+"slug": "singing_bars",
+"name_ko": "단란주점영업"
+},
+{
+"slug": "health_functional_food_general_retailers",
+"name_ko": "건강기능식품일반판매업"
+},
+{
+"slug": "mixed_video_content_providers",
+"name_ko": "복합영상물제공업"
+},
+{
+"slug": "barber_shops",
+"name_ko": "이용업"
+},
+{
+"slug": "video_viewing_rooms",
+"name_ko": "비디오물감상실업"
+},
+{
+"slug": "edible_ice_retailers",
+"name_ko": "식용얼음판매업"
+},
+{
+"slug": "distribution_specialty_retailers",
+"name_ko": "식품자동판매기영업"
+},
+{
+"slug": "food_vending_machines",
+"name_ko": "식품자동판매기영업"
+},
+{
+"slug": "sponsored_door_to_door_sales",
+"name_ko": "후원방문판매업"
+},
+{
+"slug": "instant_food_processors",
+"name_ko": "즉석판매제조가공업"
+}
+]

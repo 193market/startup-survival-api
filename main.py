@@ -1,7 +1,7 @@
 import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import diagnosis, monitoring
+from routers import diagnosis, monitoring, match
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s %(message)s')
 
@@ -32,6 +32,7 @@ app.add_middleware(
 
 app.include_router(diagnosis.router, tags=['diagnosis'])
 app.include_router(monitoring.router, tags=['monitoring'])
+app.include_router(match.router, tags=['match'])
 
 
 @app.get('/')
@@ -40,6 +41,7 @@ def root():
         'service': '창업 생존율 분석 API',
         'version': '1.0.0',
         'endpoints': [
+            'POST /api/v1/match-business',
             'POST /api/v1/diagnosis',
             'GET  /api/v1/predict?slug=...&sido=...&survival_rate=...',
             'POST /api/v1/watch',
