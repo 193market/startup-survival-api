@@ -55,7 +55,7 @@ def _extract_features(data: dict) -> list:
         _v(data.get('sido_total', data.get('total')), 0),
         _v(data.get('comp_count', data.get('competitors')), 0),
         _v(data.get('population'), 0),
-        _v(data.get('density'), 0),
+        _v(data.get('density', data.get('saturation')), 0),
         _v(data.get('avg_income'), 0),
         _v(data.get('young_ratio'), 0),
         _v(data.get('old_ratio'), 0),

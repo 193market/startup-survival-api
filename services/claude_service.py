@@ -13,33 +13,79 @@ def _get_client():
     return _client
 
 
+def _fmt(val, unit=''):
+    if val is None:
+        return '데이터 없음'
+    if isinstance(val, float):
+        if val == int(val):
+            return f'{int(val)}{unit}'
+        return f'{val:,.1f}{unit}'
+    return f'{val:,}{unit}'
+
+
 async def generate_diagnosis(analysis_data: dict) -> str:
-    prompt = f"""당신은 창업 컨설턴트입니다. 아래 데이터를 바탕으로 예비 창업자에게 3~5문장의 종합 진단과 조언을 해주세요.
+    ml = analysis_data.get('ml_prediction', {})
 
-분석 데이터:
-- 업종: {analysis_data.get('business', '')}
+    prompt = f"""당신은 10년 경력의 창업 전문 컨설턴트입니다.
+아래 공공데이터 분석 결과를 바탕으로, 이 사람이 창업해도 되는지 솔직하게 진단해주세요.
+
+[분석 대상]
+- 업종: {analysis_data.get('business', '미지정')}
 - 지역: {analysis_data.get('sido', '전국')} {analysis_data.get('sigungu', '')}
-- 5년 생존율: {analysis_data.get('survival_rate', 'N/A')}% ({analysis_data.get('grade', 'N/A')}등급)
-- 반경 동종 업체: {analysis_data.get('competitors', 'N/A')}개
-- 밀집도: {analysis_data.get('density_rank', 'N/A')}
-- 지역 인구: {analysis_data.get('population', 'N/A')}명
-- 월 가구소득: {analysis_data.get('avg_income', 'N/A')}만원
-- ML 예측 생존확률: {analysis_data.get('ml_prediction', {}).get('survival_prob', 'N/A')}
-- 최대 위험 요인: {analysis_data.get('ml_prediction', {}).get('top_risk_factor_kr', 'N/A')}
-- 받을 수 있는 지원금: {analysis_data.get('subsidies_count', 0)}건, 최대 {analysis_data.get('subsidies_total', 0)}만원
-- 사용자 메모: "{analysis_data.get('user_note', '없음')}"
+- 사용자 연령: {_fmt(analysis_data.get('user_age'), '세')}
+- 사용자 자본금: {_fmt(analysis_data.get('user_capital'), '만원')}
+- 사용자 경험: {analysis_data.get('user_experience') or '미입력'}
+- 사용자 메모: "{analysis_data.get('user_note') or '없음'}"
 
-규칙:
-1. 숫자를 나열하지 말고, 이 사람이 이해할 수 있는 일상 언어로 설명하세요.
-2. 위험하면 솔직하게 말하되, 반드시 대안(다른 업종 또는 다른 지역)을 제시하세요.
-3. 지원금 정보가 있으면 마지막에 언급하세요.
-4. "~입니다" 체로 작성하세요.
-5. 면책 문구는 넣지 마세요 (앱에서 별도 표시합니다)."""
+[공공데이터 기반 현황 — 9개 지표]
+1. 생존율: {_fmt(analysis_data.get('survival_rate'), '%')} ({analysis_data.get('grade', '?')}등급)
+   — 출처: 행정안전부 지방행정 인허가 데이터 1,125만 건 분석
+2. 경쟁: 동종 업체 {_fmt(analysis_data.get('competitors'), '개')}, 포화도 {_fmt(analysis_data.get('saturation'))} (인구 1만명당 업체 수)
+   — 출처: 소상공인시장진흥공단 상권정보 + KOSIS 인구통계
+3. 임대료: 월 {_fmt(analysis_data.get('rent'), '만원')}
+   — 출처: 한국부동산원 상업용부동산 임대동향조사
+4. 인건비: 월 {_fmt(analysis_data.get('labor_cost'), '만원')} (업종 평균)
+   — 출처: 고용노동부 사업체노동력조사 2025
+5. 예상 순이익: 월 {_fmt(analysis_data.get('net_income'), '만원')}
+   — 산출: 업종 평균 매출 − 임대료 − 인건비 − 경비율(국세청 기준경비율)
+6. 지역 인구: {_fmt(analysis_data.get('population'), '명')}
+7. 관련 지원금: {analysis_data.get('subsidies_count', 0)}건, 최대 {_fmt(analysis_data.get('subsidies_total'), '만원')}
+   — 출처: 보조금24
+8. ML 예측 생존확률: {_fmt(ml.get('survival_prob', None))}
+9. 최대 위험 요인: {ml.get('top_risk_factor_kr', '데이터 없음')}
+
+[요청사항 — 4개 항목을 반드시 모두 작성]
+
+1. **종합 진단** (3~4문장)
+   - 이 사람이 이해할 수 있는 일상 언어로 작성
+   - 위 9개 지표 중 핵심 숫자를 인용하며 설명
+   - 위험하면 솔직하게 "추천하지 않습니다"라고 말할 것
+
+2. **핵심 위험 요인** (1~2개)
+   - 위 데이터에서 가장 치명적인 지표를 구체적 숫자와 함께 명시
+   - "왜" 위험한지 한 문장으로 설명
+
+3. **구체적 대안** (2가지)
+   - 대안 A: 같은 지역에서 더 안전한 업종 (생존율 차이 명시)
+   - 대안 B: 같은 업종이지만 더 유리한 지역 또는 운영 방식
+   - 각 대안에 구체적 이유 포함
+
+4. **지원금 활용 팁** (1~2문장)
+   - 위 지원금 건수가 있으면 우선 신청할 것 추천
+   - 없으면 "소상공인시장진흥공단 정책자금을 먼저 알아보세요" 안내
+
+[규칙]
+- 반드시 위 데이터의 숫자를 인용하여 답변하세요. 데이터에 없는 수치를 만들지 마세요.
+- "데이터 없음"인 항목은 언급하지 마세요.
+- 위험하면 솔직하게 말하되, 반드시 실행 가능한 대안을 제시하세요.
+- "~입니다" 체로 작성하세요.
+- 면책 문구, 인사말, 마무리 인사는 넣지 마세요.
+- 각 항목 앞에 **번호**를 붙여 구분하세요."""
 
     client = _get_client()
     response = client.messages.create(
         model='claude-sonnet-4-20250514',
-        max_tokens=500,
+        max_tokens=1200,
         messages=[{'role': 'user', 'content': prompt}],
     )
 
