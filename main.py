@@ -60,11 +60,17 @@ def root():
 
 @app.get('/health')
 def health():
-    from services.db import is_fallback
     from config import CLAUDE_API_KEY
-    return {
-        'status': 'ok',
-        'ml_model': 'loaded',
-        'supabase': 'fallback(in-memory)' if is_fallback() else 'connected',
-        'claude_api': 'configured' if CLAUDE_API_KEY else 'not_configured',
-    }
+    result = {'status': 'ok'}
+    try:
+        from services.db import is_fallback
+        result['supabase'] = 'fallback(in-memory)' if is_fallback() else 'connected'
+    except Exception as e:
+        result['supabase'] = f'error: {e}'
+    try:
+        from services.ml_service import _model
+        result['ml_model'] = 'loaded' if _model else 'not_loaded'
+    except Exception as e:
+        result['ml_model'] = f'error: {e}'
+    result['claude_api'] = 'configured' if CLAUDE_API_KEY else 'not_configured'
+    return result
