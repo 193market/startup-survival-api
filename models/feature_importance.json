@@ -1,20 +1,23 @@
 {
   "best_model": "gradient_boosting",
   "train_accuracy": 1.0,
-  "test_accuracy": 0.9556,
+  "test_accuracy": 0.9604,
   "feature_importance": {
-    "national_n5": 0.4650135582011432,
-    "sido_survival_rate": 0.17596073402049622,
-    "sido_n1": 0.14452839564077155,
-    "national_survival_rate": 0.0833716504278923,
-    "sido_total": 0.034735173298468515,
-    "density": 0.021381450242940137,
-    "old_ratio": 0.016937986593639764,
-    "slug_code": 0.01626999553804848,
-    "young_ratio": 0.015916385779758617,
-    "avg_income": 0.011630056679253072,
-    "population": 0.008332546822579005,
-    "comp_count": 0.005922066755008977
+    "national_n5": 0.46482563870643206,
+    "sido_survival_rate": 0.17461128142552362,
+    "sido_n1": 0.13933181293170757,
+    "national_survival_rate": 0.08475687322261977,
+    "sido_total": 0.033294723495797776,
+    "density": 0.021285748247857703,
+    "slug_code": 0.020556435221327267,
+    "young_ratio": 0.01645104221419513,
+    "old_ratio": 0.01457839203386179,
+    "avg_income": 0.011527024850721702,
+    "population": 0.0058658271847597185,
+    "building_density": 0.0054883902715700894,
+    "comp_count": 0.00482406661095423,
+    "saturation": 0.0026027435826715558,
+    "rent_level": 0.0
   },
   "top_risk_factor": "national_n5",
   "feature_names": [
@@ -29,6 +32,9 @@
     "avg_income",
     "young_ratio",
     "old_ratio",
+    "saturation",
+    "rent_level",
+    "building_density",
     "slug_code"
   ],
   "feature_names_kr": {
@@ -43,24 +49,27 @@
     "avg_income": "가구소득",
     "young_ratio": "20~30대 비율",
     "old_ratio": "50대 이상 비율",
+    "saturation": "포화도",
+    "rent_level": "임대료 수준",
+    "building_density": "상가건물 밀도",
     "slug_code": "업종 코드"
   },
   "all_results": {
     "gradient_boosting": {
       "train_accuracy": 1.0,
-      "test_accuracy": 0.9556
+      "test_accuracy": 0.9604
     },
     "logistic": {
-      "train_accuracy": 0.9401,
-      "test_accuracy": 0.9429
+      "train_accuracy": 0.927,
+      "test_accuracy": 0.935
     },
     "knn": {
       "train_accuracy": 0.9096,
       "test_accuracy": 0.8986
     },
     "decision_tree": {
-      "train_accuracy": 0.9881,
-      "test_accuracy": 0.9556
+      "train_accuracy": 0.9885,
+      "test_accuracy": 0.9477
     }
   }
 }

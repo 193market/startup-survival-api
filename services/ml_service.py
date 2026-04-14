@@ -37,7 +37,7 @@ def predict_survival(input_data: dict) -> dict:
 
 
 def _extract_features(data: dict) -> list:
-    """입력 데이터에서 12개 feature 벡터 추출. 없는 값은 0으로 대체."""
+    """입력 데이터에서 feature 벡터 추출. feature_importance.json의 feature_names 순서에 맞춤."""
     slug = data.get('slug', '')
     try:
         slug_code = int(_slug_encoder.transform([slug])[0])
@@ -47,17 +47,22 @@ def _extract_features(data: dict) -> list:
     def _v(val, default=0):
         return default if val is None else float(val)
 
-    return [
-        _v(data.get('national_survival_rate', data.get('survival_rate')), 50),
-        _v(data.get('national_n5'), 0),
-        _v(data.get('sido_survival_rate', data.get('survival_rate')), 50),
-        _v(data.get('sido_n1'), 0),
-        _v(data.get('sido_total', data.get('total')), 0),
-        _v(data.get('comp_count', data.get('competitors')), 0),
-        _v(data.get('population'), 0),
-        _v(data.get('density', data.get('saturation')), 0),
-        _v(data.get('avg_income'), 0),
-        _v(data.get('young_ratio'), 0),
-        _v(data.get('old_ratio'), 0),
-        float(slug_code),
-    ]
+    # FEATURE_NAMES 순서에 맞춰 동적 추출
+    feature_map = {
+        'national_survival_rate': _v(data.get('national_survival_rate', data.get('survival_rate')), 50),
+        'national_n5': _v(data.get('national_n5'), 0),
+        'sido_survival_rate': _v(data.get('sido_survival_rate', data.get('survival_rate')), 50),
+        'sido_n1': _v(data.get('sido_n1'), 0),
+        'sido_total': _v(data.get('sido_total', data.get('total')), 0),
+        'comp_count': _v(data.get('comp_count', data.get('competitors')), 0),
+        'population': _v(data.get('population'), 0),
+        'density': _v(data.get('density'), 0),
+        'avg_income': _v(data.get('avg_income'), 0),
+        'young_ratio': _v(data.get('young_ratio'), 0),
+        'old_ratio': _v(data.get('old_ratio'), 0),
+        'saturation': _v(data.get('saturation'), 0),
+        'rent_level': _v(data.get('rent_level', data.get('rent')), 0),
+        'building_density': _v(data.get('building_density'), 0),
+        'slug_code': float(slug_code),
+    }
+    return [feature_map.get(f, 0) for f in FEATURE_NAMES]

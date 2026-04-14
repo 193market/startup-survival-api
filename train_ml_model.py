@@ -30,6 +30,16 @@ def build_training_data():
     comp = load_json('competition_summary.json')
     kosis = load_json('kosis_population.json')
 
+    # Phase 7: 새 피처 데이터 로드
+    try:
+        rent_data = load_json('rent_by_region.json')
+    except Exception:
+        rent_data = {}
+    try:
+        building_data = load_json('building_summary.json')
+    except Exception:
+        building_data = {}
+
     # slug -> L1 전국 데이터
     l1_map = {item['slug']: item for item in l1['업종별']}
 
@@ -57,14 +67,46 @@ def build_training_data():
                     if slug in sg_data:
                         comp_count += sg_data[slug]['count']
 
+            # 포화도 (인구 1만명당)
+            population = pop_info.get('population', 0)
+            saturation = (comp_count / population * 10000) if population > 0 else 0
+
+            # 임대료 수준 (시도별 평균, 없으면 0)
+            rent_level = 0
+            if isinstance(rent_data, dict):
+                for rk, rv in rent_data.items():
+                    if sido in str(rk):
+                        rent_level = rv.get('avg_rent', rv.get('rent', 0)) if isinstance(rv, dict) else 0
+                        break
+
+            # 건물 밀도 (시도 하위 시군구 합산 — 해당 시도 코드 매칭)
+            building_density = 0
+            sido_prefix = ''
+            if '서울' in sido: sido_prefix = '11'
+            elif '부산' in sido: sido_prefix = '26'
+            elif '대구' in sido: sido_prefix = '27'
+            elif '인천' in sido: sido_prefix = '28'
+            elif '광주' in sido: sido_prefix = '29'
+            elif '대전' in sido: sido_prefix = '30'
+            elif '울산' in sido: sido_prefix = '31'
+            elif '세종' in sido: sido_prefix = '36'
+            elif '경기' in sido: sido_prefix = '41'
+            elif '강원' in sido: sido_prefix = '42'
+            elif '충북' in sido: sido_prefix = '43'
+            elif '충남' in sido: sido_prefix = '44'
+            elif '전북' in sido: sido_prefix = '45'
+            elif '전남' in sido: sido_prefix = '46'
+            elif '경북' in sido: sido_prefix = '47'
+            elif '경남' in sido: sido_prefix = '48'
+            elif '제주' in sido: sido_prefix = '50'
+
+            if sido_prefix and building_data:
+                bld_total = sum(v.get('total', 0) for k, v in building_data.items() if k.startswith(sido_prefix))
+                building_density = (bld_total / population * 10000) if population > 0 else 0
+
             # 목표: 5년 생존율 >= 50% -> 1(생존), < 50% -> 0(위험)
             n5 = sido_item.get('n5')
-            if n5 is None:
-                # n5 없으면 survival_rate 사용
-                n5_proxy = sido_item['survival_rate']
-            else:
-                n5_proxy = n5
-
+            n5_proxy = n5 if n5 is not None else sido_item['survival_rate']
             label = 1 if n5_proxy >= 50 else 0
 
             age_dist = pop_info.get('age_distribution', {})
@@ -78,11 +120,14 @@ def build_training_data():
                 'sido_n1': sido_item.get('n1') or 0,
                 'sido_total': sido_item['total'],
                 'comp_count': comp_count,
-                'population': pop_info.get('population', 0),
+                'population': population,
                 'density': pop_info.get('density', 0),
                 'avg_income': pop_info.get('avg_income', 0),
                 'young_ratio': young_ratio,
                 'old_ratio': old_ratio,
+                'saturation': round(saturation, 2),
+                'rent_level': rent_level,
+                'building_density': round(building_density, 2),
                 'slug_code': slug_encoder.transform([slug])[0],
                 'label': label,
             }
@@ -91,7 +136,9 @@ def build_training_data():
     feature_names = [
         'national_survival_rate', 'national_n5', 'sido_survival_rate',
         'sido_n1', 'sido_total', 'comp_count', 'population', 'density',
-        'avg_income', 'young_ratio', 'old_ratio', 'slug_code',
+        'avg_income', 'young_ratio', 'old_ratio',
+        'saturation', 'rent_level', 'building_density',
+        'slug_code',
     ]
     feature_names_kr = {
         'national_survival_rate': '전국 생존율',
@@ -105,6 +152,9 @@ def build_training_data():
         'avg_income': '가구소득',
         'young_ratio': '20~30대 비율',
         'old_ratio': '50대 이상 비율',
+        'saturation': '포화도',
+        'rent_level': '임대료 수준',
+        'building_density': '상가건물 밀도',
         'slug_code': '업종 코드',
     }
 
