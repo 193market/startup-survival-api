@@ -39,6 +39,7 @@ class DiagnosisRequest(BaseModel):
     user_experience: Optional[str] = None
     user_note: Optional[str] = None
     license_info: Optional[str] = None
+    is_report: Optional[bool] = False
 
 
 class DiagnosisResponse(BaseModel):

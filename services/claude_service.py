@@ -92,10 +92,33 @@ async def generate_diagnosis(analysis_data: dict) -> str:
 - 면책 문구, 인사말, 마무리 인사는 넣지 마세요.
 - 각 항목 앞에 **번호**를 붙여 구분하세요."""
 
+    # 보고서 모드: 상세 분석 (유료)
+    is_report = analysis_data.get('is_report', False)
+    if is_report:
+        prompt += """
+
+[보고서 모드 — 상세 분석]
+위 데이터를 기반으로 종합 창업 분석 보고서를 작성해주세요.
+반드시 아래 9개 항목을 모두 포함하세요:
+
+1. 종합 판정 (3~4문장)
+2. 핵심 위험/기회 요인 (상위 3개, 각 1~2문장)
+3. 재무 분석 (매출-임대료-인건비-순이익, 자본금 소진 시점 계산)
+4. 경쟁 환경 (포화도, 동종업체, 시장 트렌드)
+5. 대안 시나리오 A: 같은 지역 다른 업종 (구체적 업종명+이유)
+6. 대안 시나리오 B: 같은 업종 다른 지역 (구체적 지역명+이유)
+7. 프랜차이즈 비교 (해당 업종 브랜드 있으면 폐점률 기준 추천)
+8. 활용 가능 지원금 안내
+9. 인허가 절차 및 준비사항
+
+각 항목을 2~3문장 이상으로 충분히 서술하세요."""
+
+    max_tokens = 2500 if is_report else 1200
+
     client = _get_client()
     response = client.messages.create(
         model='claude-sonnet-4-20250514',
-        max_tokens=1200,
+        max_tokens=max_tokens,
         messages=[{'role': 'user', 'content': prompt}],
     )
 
