@@ -38,6 +38,7 @@ class DiagnosisRequest(BaseModel):
     user_capital: Optional[float] = None
     user_experience: Optional[str] = None
     user_note: Optional[str] = None
+    license_info: Optional[str] = None
 
 
 class DiagnosisResponse(BaseModel):
@@ -182,5 +183,9 @@ def _rule_based_advice(req: DiagnosisRequest, ml: dict) -> list:
                     f'💡 자본금 {_fmt(req.user_capital, "만원")} 기준 약 {runway}개월 '
                     f'운영 가능으로 자금 여력은 양호합니다.'
                 )
+
+    # 7. 인허가 절차
+    if req.license_info:
+        tips.append(f'📋 인허가: {req.license_info}')
 
     return tips
